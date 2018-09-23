@@ -1,0 +1,29 @@
+{
+  "name": "ken-ng-reddit",
+  "version": "1.0.0",
+  "description": "ken-ng-reddit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenvilar/ken-ng-reddit.git"
+  },
+  "keywords": [
+    "angular",
+    "kenvilar"
+  ],
+  "author": "Ken Vilar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kenvilar/ken-ng-reddit/issues"
+  },
+  "homepage": "https://github.com/kenvilar/ken-ng-reddit#readme",
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  },
+  "dependencies": {
+    "angular": "^1.7.2"
+  }
+}
