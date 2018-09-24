@@ -60,6 +60,18 @@
 						post.votes--;
 					}
 				};
+
+				self.addComment = (post) => {
+					let commentsArr = post.comments;
+
+					commentsArr.push({
+						text: self.newComment.text
+					});
+
+					self.newComment = {
+						title: ''
+					};
+				};
 			},
 			templateUrl: '/app/templates/reddit.html',
 		});

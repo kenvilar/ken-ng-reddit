@@ -113,18 +113,21 @@
 							</li>
 						</ul>
 					</div>
-					<div class="row">
+					<div ng-if="model.comment==$index" class="row">
 						<div class="offset-md-1">
 							<hr>
-							<p>Comment text</p>
-						</div>
-						<form action="">
-							<div class="form-inline">
-								<div class="form-group">
-									<input type="text" class="form-control">
+							<p>Add Comment</p>
+							<form ng-submit="$ctrl.addComment(post)" class="form-inline">
+								<div class="form-inline">
+									<div class="form-group">
+										<input ng-model="$ctrl.newComment.text" type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<input type="submit" class="btn btn-primary" value="SUBMIT">
+									</div>
 								</div>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
