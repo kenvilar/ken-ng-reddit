@@ -3,7 +3,7 @@
 		<div class="row flex-nowrap justify-content-between align-items-center">
 			<div class="col-4 pt-1"></div>
 			<div class="col-4 text-center">
-				<a class="blog-header-logo text-dark" href="#">KEN NG REDDIT</a>
+				<a class="blog-header-logo text-dark" href="#">KEN NG-REDDIT</a>
 			</div>
 			<div class="col-4 d-flex justify-content-end align-items-center"></div>
 		</div>
@@ -28,9 +28,13 @@
 		</li>
 		<div class="form-inline">
 			<label for="sort">Sort by</label>
-			<select name="" id="sort" class="form-control">
-				<option value="">Some text</option>
-				<option value="">Some text</option>
+			<select ng-model="sortPost" ng-init="sortPost = '-votes'" name="" id="sort" class="form-control">
+				<option value="-votes">Votes Descending</option>
+				<option value="votes">Votes Ascending</option>
+				<option value="-created_at">Date Ascending</option>
+				<option value="created_at">Date Ascending</option>
+				<option value="-title">Title Ascending</option>
+				<option value="title">Title Ascending</option>
 			</select>
 		</div>
 	</ul>
@@ -68,7 +72,7 @@
 	<div class="row" ng-show="$ctrl.isSet(1)">
 		<div class="col-md-12">
 			<div class="card"
-			     ng-repeat="post in $ctrl.postsArr | orderBy: '-votes' | filter: {title:searchPost}">
+			     ng-repeat="post in $ctrl.postsArr | orderBy: sortPost | filter: {title:searchPost}">
 				<div class="blog-post card-header">
 					<img ng-src="{{ post.image_url }}"
 					     alt="image"
