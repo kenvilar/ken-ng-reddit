@@ -7,7 +7,7 @@
 				const self = this;
 
 				self.$onInit = () => {
-					self.posts = [];
+					self.postsArr = [];
 				};
 
 				self.tab = 1;
@@ -21,31 +21,27 @@
 				};
 
 				self.addPost = () => {
-					self.posts.created_at = Date.now();
-					self.posts.votes = 0;
-					self.posts.commments = [];
+					if (self.posts && self.posts.title && self.posts.body &&
+						self.posts.author && self.posts.image_url) {
+						self.postsArr.push({
+							title: self.posts.title,
+							body: self.posts.body,
+							author: self.posts.author,
+							image_url: self.posts.image_url,
+							created_at: Date.now(),
+							votes: 0,
+							comments: []
+						});
 
-					self.posts.push({
-						title: self.posts.title,
-						body: self.posts.body,
-						author: self.posts.author,
-						img_url: self.posts.img,
-						created_at: self.posts.created_at,
-						votes: self.posts.votes,
-						comments: self.posts.commments
-					});
+						self.posts = {
+							title: '',
+							body: '',
+							author: '',
+							img_url: ''
+						};
+					}
 
-					self.posts = {
-						title: '',
-						body: '',
-						author: '',
-						img_url: '',
-						created_at: '',
-						votes: '',
-						comments: ''
-					};
-
-					console.log(self.posts);
+					console.log(self.postsArr);
 				};
 			},
 			templateUrl: '/app/templates/reddit.html',
