@@ -67,7 +67,7 @@
 
 	<div class="row" ng-show="$ctrl.isSet(1)">
 		<div class="col-md-12">
-			<div class="card" ng-repeat="post in $ctrl.postsArr">
+			<div class="card" ng-repeat="post in $ctrl.postsArr | orderBy: '-votes'">
 				<div class="blog-post card-header">
 					<img ng-src="{{ post.image_url }}"
 					     alt="image"
