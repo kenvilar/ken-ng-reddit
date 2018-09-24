@@ -66,10 +66,13 @@
 	</div>
 
 	<div class="row" ng-show="$ctrl.isSet(1)">
-		<div class="col-md-12 card-deck">
+		<div class="col-md-12">
 			<div class="card" ng-repeat="post in $ctrl.postsArr">
 				<div class="blog-post card-header">
-					<img ng-src="{{ post.image_url }}" alt="image" class="media" style="width: 20%">
+					<img ng-src="{{ post.image_url }}"
+					     alt="image"
+					     class="media"
+					     style="width: 20%">
 					<h2 class="blog-post-title">{{ post.title }}</h2>
 					<p class="blog-post-meta">
 						{{ post.created_at | date }} by <a href="#">{{ post.author }}</a> <br/>
@@ -79,7 +82,15 @@
 					<p>{{ post.body }}</p>
 
 					<i class="glyphicon glyphicon-comment"></i>
-					<a>{{ post.comments }}</a>
+					<a>
+						<ng-pluralize
+								count="post.comments.length"
+								when="{
+									'0': 'No comments',
+									'1': '1 comment',
+									'other': '{} comments'
+								}"></ng-pluralize>
+					</a>
 				</div>
 			</div>
 		</div>
