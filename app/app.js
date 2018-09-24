@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	angular.module('ken-ng-reddit', [])
+	angular.module('ken-ng-reddit', ['angularMoment'])
 		.component('reddit', {
 			controller: function() {
 				const self = this;
