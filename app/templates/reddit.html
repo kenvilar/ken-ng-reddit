@@ -110,7 +110,7 @@
 						<ul>
 							<li ng-repeat="comment in post.comments">
 								{{ comment.text }} -- {{ comment.author }}
-								<div><span am-time-ago="comment.created_at"></div>
+								<div am-time-ago="comment.created_at"></div>
 							</li>
 						</ul>
 					</div>
