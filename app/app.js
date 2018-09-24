@@ -51,8 +51,6 @@
 							img_url: ''
 						};
 					}
-
-					console.log(self.postsArr);
 				};
 
 				self.upVote = (post) => {
