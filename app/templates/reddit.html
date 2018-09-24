@@ -80,8 +80,8 @@
 					     style="width: 20%">
 					<h2 class="blog-post-title">{{ post.title }}</h2>
 					<p class="blog-post-meta">
-						<i ng-click="$ctrl.upVote(post)" class="fas fa-thumbs-up"></i>
-						<i ng-click="$ctrl.downVote(post)" class="fas fa-thumbs-down"></i>
+						<a><i ng-click="$ctrl.upVote(post)" class="fas fa-thumbs-up"></i></a>
+						<a><i ng-click="$ctrl.downVote(post)" class="fas fa-thumbs-down"></i></a>
 						<span am-time-ago="post.created_at"></span> by <a href="#">{{ post.author }}</a> <br/>
 						<small>Votes: {{ post.votes }}</small>
 					</p>
@@ -89,15 +89,43 @@
 					<p>{{ post.body }}</p>
 
 					<i class="fas fa-comment"></i>
-					<a>
+					<a ng-click="model.comment=$index" ng-show="model.comment!=$index">
 						<ng-pluralize
 								count="post.comments.length"
 								when="{
 									'0': 'No comments',
-									'1': '1 comment',
-									'other': '{} comments'
+									'1': 'Show 1 comment',
+									'other': 'Show {} comments'
 								}"></ng-pluralize>
 					</a>
+					<a ng-click="model.comment=-1" ng-show="model.comment==$index">
+						<ng-pluralize
+								count="post.comments.length"
+								when="{
+									'1': 'Hide comment',
+									'other': 'Hide comments'
+								}"></ng-pluralize>
+					</a>
+					<div class="comment" ng-if="model.comment==$index">
+						<ul>
+							<li ng-repeat="comment in post.comments">
+								{{ comment.text }}
+							</li>
+						</ul>
+					</div>
+					<div class="row">
+						<div class="offset-md-1">
+							<hr>
+							<p>Comment text</p>
+						</div>
+						<form action="">
+							<div class="form-inline">
+								<div class="form-group">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

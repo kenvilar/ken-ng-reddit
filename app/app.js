@@ -30,9 +30,14 @@
 							image_url: self.posts.image_url,
 							created_at: Date.now(),
 							votes: 0,
-							comments: [{
-								text: 'Love it!!'
-							}]
+							comments: [
+								{
+									text: 'Love it!!'
+								},
+								{
+									text: 'Hi, Ken!'
+								}
+							]
 						});
 
 						self.posts = {
