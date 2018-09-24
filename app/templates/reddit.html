@@ -75,7 +75,7 @@
 					     style="width: 20%">
 					<h2 class="blog-post-title">{{ post.title }}</h2>
 					<p class="blog-post-meta">
-						{{ post.created_at | date }} by <a href="#">{{ post.author }}</a> <br/>
+						<span am-time-ago="post.created_at"></span> by <a href="#">{{ post.author }}</a> <br/>
 						<small>Votes: {{ post.votes }}</small>
 					</p>
 
