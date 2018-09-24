@@ -32,10 +32,14 @@
 							votes: 0,
 							comments: [
 								{
-									text: 'Love it!!'
+									text: 'Love it!!',
+									author: 'John Doe',
+									created_at: 1495072634391
 								},
 								{
-									text: 'Hi, Ken!'
+									text: 'Hi, Ken!',
+									author: 'Jane Doe',
+									created_at: 1495072634391
 								}
 							]
 						});
@@ -65,11 +69,15 @@
 					let commentsArr = post.comments;
 
 					commentsArr.push({
-						text: self.newComment.text
+						text: self.newComment.text,
+						author: self.newComment.author,
+						created_at: Date.now()
 					});
 
 					self.newComment = {
-						title: ''
+						title: '',
+						author: '',
+						created_at: ''
 					};
 				};
 			},

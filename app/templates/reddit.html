@@ -109,7 +109,8 @@
 					<div class="comment" ng-if="model.comment==$index">
 						<ul>
 							<li ng-repeat="comment in post.comments">
-								{{ comment.text }}
+								{{ comment.text }} -- {{ comment.author }}
+								<div><span am-time-ago="comment.created_at"></div>
 							</li>
 						</ul>
 					</div>
@@ -120,7 +121,18 @@
 							<form ng-submit="$ctrl.addComment(post)" class="form-inline">
 								<div class="form-inline">
 									<div class="form-group">
-										<input ng-model="$ctrl.newComment.text" type="text" class="form-control">
+										<label for="commentText">Comment:</label>
+										<input ng-model="$ctrl.newComment.text"
+										       type="text"
+										       id="commentText"
+										       class="form-control"
+										       required>
+										<label for="commentAuthor">Author:</label>
+										<input ng-model="$ctrl.newComment.author"
+										       type="text"
+										       id="commentAuthor"
+										       class="form-control"
+										       required>
 									</div>
 									<div class="form-group">
 										<input type="submit" class="btn btn-primary" value="SUBMIT">
