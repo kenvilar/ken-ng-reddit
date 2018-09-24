@@ -24,7 +24,7 @@
 
 	<ul class="nav nav-pills">
 		<li role="presentation" class="active">
-			<input type="search" class="form-control input-sm search-form" placeholder="Filter">
+			<input ng-model="searchPost" type="search" class="form-control input-sm search-form" placeholder="Filter">
 		</li>
 		<div class="form-inline">
 			<label for="sort">Sort by</label>
@@ -67,7 +67,8 @@
 
 	<div class="row" ng-show="$ctrl.isSet(1)">
 		<div class="col-md-12">
-			<div class="card" ng-repeat="post in $ctrl.postsArr | orderBy: '-votes'">
+			<div class="card"
+			     ng-repeat="post in $ctrl.postsArr | orderBy: '-votes' | filter: {title:searchPost}">
 				<div class="blog-post card-header">
 					<img ng-src="{{ post.image_url }}"
 					     alt="image"
