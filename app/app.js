@@ -45,6 +45,16 @@
 
 					console.log(self.postsArr);
 				};
+
+				self.upVote = (post) => {
+					post.votes++;
+				};
+
+				self.downVote = (post) => {
+					if (post.votes >= 1) {
+						post.votes--;
+					}
+				};
 			},
 			templateUrl: '/app/templates/reddit.html',
 		});
