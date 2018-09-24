@@ -5,3 +5,9 @@
 .blog-header-logo:hover {
 	text-decoration: none;
 }
+.ng-dirty.ng-invalid, .ng-empty.ng-invalid {
+	border-color: hsl(0, 60%, 50%);
+}
+.ng-dirty.ng-valid {
+	border-color: hsl(120, 60%, 50%);
+}

@@ -40,19 +40,21 @@
 			<form ng-show="$ctrl.isSet(2)" ng-submit="$ctrl.addPost()">
 				<div>
 					<label for="title">Title</label>
-					<input ng-model="$ctrl.posts.title" type="text" id="title" class="form-control">
+					<input ng-model="$ctrl.posts.title" type="text" id="title" class="form-control" required>
 				</div>
 				<div>
 					<label for="body">Body</label>
-					<textarea ng-model="$ctrl.posts.body" name="" id="body" cols="30" rows="10" class="form-control"></textarea>
+					<textarea ng-model="$ctrl.posts.body" name="" id="body" cols="30" rows="10" class="form-control"
+					          required>
+					</textarea>
 				</div>
 				<div>
 					<label for="author">Author</label>
-					<input ng-model="$ctrl.posts.author" type="text" id="author" class="form-control">
+					<input ng-model="$ctrl.posts.author" type="text" id="author" class="form-control" required>
 				</div>
 				<div>
 					<label for="image_url">Image URL</label>
-					<input ng-model="$ctrl.posts.image_url" type="text" id="image_url" class="form-control">
+					<input ng-model="$ctrl.posts.image_url" type="text" id="image_url" class="form-control" required>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">
@@ -65,23 +67,18 @@
 
 	<div class="row" ng-show="$ctrl.isSet(1)">
 		<div class="col-md-12 card-deck">
-			<div class="card">
+			<div class="card" ng-repeat="post in postsArr">
 				<div class="blog-post card-header">
-					<h2 class="blog-post-title">Another blog post</h2>
-					<p class="blog-post-meta">September, 2018 by <a href="#">Ken</a></p>
+					<h2 class="blog-post-title">{{ post.title }}</h2>
+					<p class="blog-post-meta">
+						{{ post.created_at | date }} by <a href="#">{{ post.author }}</a> <br/>
+						<small>Votes: {{ post.votes }}</small>
+					</p>
 
-					<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus.
-						Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere
-						consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-					<blockquote>
-						<p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare
-							vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					</blockquote>
-					<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
-						fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-					<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo
-						luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac
-						consectetur ac, vestibulum at eros.</p>
+					<p>{{ post.body }}</p>
+
+					<i class="glyphicon glyphicon-comment"></i>
+					<a>{{ post.comments }}</a>
 				</div>
 			</div>
 		</div>
